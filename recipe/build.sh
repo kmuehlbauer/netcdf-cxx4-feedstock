@@ -38,8 +38,8 @@ else
     exit 1
 fi
 
-#export CFLAGS="${CFLAGS} -m${ARCH}"
-#export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
+export CFLAGS="${CFLAGS} -m${ARCH}"
+export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 
 
 CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX
