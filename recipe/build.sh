@@ -19,10 +19,10 @@ then
 #     export MACOSX_VERSION_MIN="10.7"
 #     export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
 #     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-#     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -std=c++11"
+    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -std=c++11"
 #     export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-#     export LDFLAGS="${LDFLAGS} -stdlib=libc++ -lc++"
-#     export LINKFLAGS="${LDFLAGS}"
+    export LDFLAGS="${LDFLAGS} -stdlib=libc++ -lc++"
+    export LINKFLAGS="${LDFLAGS}"
 #     # See http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11939.html
 #     #export DYLD_LIBRARY_PATH=${PREFIX}/lib
 elif [ "$(uname)" == "Linux" ]
