@@ -24,7 +24,7 @@ then
     export LDFLAGS="${LDFLAGS} -stdlib=libc++ -lc++"
     export LINKFLAGS="${LDFLAGS}"
     # See http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11939.html
-    export DYLD_LIBRARY_PATH=${PREFIX}/lib
+    #export DYLD_LIBRARY_PATH=${PREFIX}/lib
 elif [ "$(uname)" == "Linux" ]
 then
     # for Linux
