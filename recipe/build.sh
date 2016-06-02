@@ -42,8 +42,7 @@
 #export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 
 
-#CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib 
-./configure --prefix=$PREFIX
+CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX
 cat config.log
 
 make
