@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Build shared.
+# cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
+#      -D CMAKE_INSTALL_LIBDIR:PATH=$PREFIX/lib \
+#      -D BUILD_SHARED_LIBS=ON \
+#      -D NCXX_ENABLE_TESTS=ON \
+#      -D ENABLE_DOXYGEN=OFF \
+#      $SRC_DIR
+#make
+#ctest
+#make install
+
 if [ "$(uname)" == "Darwin" ]
 then
     # for Mac OSX
@@ -30,6 +41,7 @@ fi
 export CFLAGS="${CFLAGS} -m${ARCH}"
 export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 
+autoreconf -if
 
 CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX
 
