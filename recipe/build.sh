@@ -41,9 +41,13 @@ fi
 export CFLAGS="${CFLAGS} -m${ARCH}"
 export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 
+which autoreconf
+cat `which autoreconf`
+
 autoreconf -if
 
 CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX
+cat config.log
 
 make
 make check
