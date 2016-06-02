@@ -11,11 +11,11 @@
 #ctest
 #make install
 
-# if [ "$(uname)" == "Darwin" ]
-# then
-#     # for Mac OSX
-#     export CC=clang
-#     export CXX=clang++
+if [ "$(uname)" == "Darwin" ]
+then
+    # for Mac OSX
+    export CC=clang
+    export CXX=clang++
 #     export MACOSX_VERSION_MIN="10.7"
 #     export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
 #     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
@@ -25,18 +25,18 @@
 #     export LINKFLAGS="${LDFLAGS}"
 #     # See http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11939.html
 #     #export DYLD_LIBRARY_PATH=${PREFIX}/lib
-# elif [ "$(uname)" == "Linux" ]
-# then
-#     # for Linux
-#     export CC=gcc
-#     export CXX=g++
+elif [ "$(uname)" == "Linux" ]
+then
+    # for Linux
+    export CC=gcc
+    export CXX=g++
 #     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
 #     export LDFLAGS="${LDFLAGS}"
 #     export LINKFLAGS="${LDFLAGS}"
-# else
-#     echo "This system is unsupported by the toolchain."
-#     exit 1
-# fi
+else
+    echo "This system is unsupported by the toolchain."
+    exit 1
+fi
 
 #export CFLAGS="${CFLAGS} -m${ARCH}"
 #export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
