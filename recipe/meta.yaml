@@ -18,6 +18,7 @@ requirements:
     - autoconf
     - automake
     - libtool
+    - toolchain
     - libnetcdf 4.4*
   run:
     - libnetcdf 4.4*

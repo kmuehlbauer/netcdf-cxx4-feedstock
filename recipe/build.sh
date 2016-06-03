@@ -14,44 +14,12 @@
 #ctest
 #make install
 
-if [ "$(uname)" == "Darwin" ]
-then
-    # for Mac OSX
-    export CC=clang
-    export CXX=clang++
-    export MACOSX_VERSION_MIN="10.7"
-    export MACOSX_DEPLOYMENT_TARGET="${MACOSX_VERSION_MIN}"
-    export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -std=c++11"
-    export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    export LDFLAGS="${LDFLAGS} -stdlib=libc++ -lc++"
-    export LINKFLAGS="${LDFLAGS}"
-#     # See http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11939.html
-    # export DYLD_LIBRARY_PATH=${PREFIX}/lib
-elif [ "$(uname)" == "Linux" ]
-then
-    # for Linux
-    export CC=gcc
-    export CXX=g++
-#     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
-#     export LDFLAGS="${LDFLAGS}"
-#     export LINKFLAGS="${LDFLAGS}"
-else
-    echo "This system is unsupported by the toolchain."
-    exit 1
-fi
+source activate "${CONDA_DEFAULT_ENV}"
 
-export CFLAGS="${CFLAGS} -m${ARCH}"
-export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
-
-echo $LDFLAGS
-
-CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib 
-
-echo $LDFLAGS
+autoreconf -if
 
 ./configure --prefix=$PREFIX
-cat config.log
+
 
 make
 make check
