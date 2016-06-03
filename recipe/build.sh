@@ -18,8 +18,7 @@ source activate "${CONDA_DEFAULT_ENV}"
 
 autoreconf -if
 
-./configure --prefix=$PREFIX
-
+CPPFLAGS="${CPPFLAGS} -I$PREFIX/include" LDFLAGS="${LDFLAGS} -L$PREFIX/lib" ./configure --prefix=$PREFIX
 
 make
 make check
