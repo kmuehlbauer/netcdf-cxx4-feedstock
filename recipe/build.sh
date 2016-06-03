@@ -27,7 +27,7 @@ then
     export LDFLAGS="${LDFLAGS} -stdlib=libc++ -lc++"
     export LINKFLAGS="${LDFLAGS}"
 #     # See http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11939.html
-#     #export DYLD_LIBRARY_PATH=${PREFIX}/lib
+    # export DYLD_LIBRARY_PATH=${PREFIX}/lib
 elif [ "$(uname)" == "Linux" ]
 then
     # for Linux
@@ -44,8 +44,13 @@ fi
 export CFLAGS="${CFLAGS} -m${ARCH}"
 export CXXFLAGS="${CXXFLAGS} -m${ARCH}"
 
+echo $LDFLAGS
 
-CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX
+CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib 
+
+echo $LDFLAGS
+
+./configure --prefix=$PREFIX
 cat config.log
 
 make
