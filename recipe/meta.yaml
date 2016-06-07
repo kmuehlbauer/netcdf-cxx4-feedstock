@@ -8,6 +8,8 @@ source:
   fn: netcdf-cxx4-{{ version }}.tar.gz
   url: https://github.com/Unidata/netcdf-cxx4/archive/v{{ version }}.tar.gz
   sha256: 25da1c97d7a01bc4cee34121c32909872edd38404589c0427fefa1301743f18f
+  patches:
+    - ncxx4-config.patch
 
 build:
   number: 0
